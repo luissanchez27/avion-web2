@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>De la teoría al cielo — USC</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav><b>USC · INGENIERÍA</b><div><a href="#galeria">Galería</a><a href="#problema">Problema</a><a href="#objetivos">Objetivos</a><a href="#metodologia">Metodología</a><a href="#video">Video</a><a href="#cronograma">Cronograma</a><a href="#equipo">Equipo</a></div></nav>
+
+<header class="hero">
+<small>Anteproyecto de trabajo de grado · Instrumentación, automatización y sistemas inteligentes</small>
+<h1>De la teoría al cielo</h1>
+<p>Prototipo de avión a escala con vuelo autónomo, sensores de telemetría y una red neuronal a bordo (TensorFlow Lite) capaz de detectar perturbaciones y corregir la trayectoria.</p>
+<a class="btn" href="#introduccion">Ver proyecto</a> <a class="btn" href="#video">Ver video</a>
+</header>
+
+<section id="introduccion">
+<h2>Introducción</h2>
+<p class="lead">Mantener una trayectoria estable sin un operador humano sigue siendo uno de los grandes retos de los UAV de ala fija a pequeña escala.</p>
+<div class="grid">
+<div class="card"><div class="d">Contexto</div><h3>UAV de ala fija</h3><p>Eficiencia aerodinámica y alcance, pero con retos de estabilidad, orientación y seguimiento de trayectorias.</p></div>
+<div class="card"><div class="d">Perturbaciones</div><h3>Viento y vibración</h3><p>Corrientes de aire, vibraciones de los motores y cambios en el peso o la inclinación desvían la aeronave.</p></div>
+<div class="card"><div class="d">Datos</div><h3>IMU y telemetría</h3><p>Aceleraciones, ángulos de inclinación y vibraciones alimentan el entrenamiento de la red neuronal.</p></div>
+<div class="card"><div class="d">Inteligencia a bordo</div><h3>TensorFlow → TinyML</h3><p>El modelo se entrena con TensorFlow y se convierte con TensorFlow Lite para correr en un microcontrolador.</p></div>
+</div>
+</section>
+
+<section id="galeria"><h2>Galería del prototipo</h2><div class="car"><div class="track"><figure class="slide"><img src="media/foto1.jpg" alt="Estructura de las alas con motores y cableado" loading="lazy"><figcaption>Estructura de las alas con motores y cableado</figcaption></figure><figure class="slide"><img src="media/foto2.jpg" alt="Fuselaje en palos de balso con electrónica a bordo" loading="lazy"><figcaption>Fuselaje en palos de balso con electrónica a bordo</figcaption></figure><figure class="slide"><img src="media/foto3.jpg" alt="Prototipo forrado y listo para pruebas" loading="lazy"><figcaption>Prototipo forrado y listo para pruebas</figcaption></figure></div><button class="arr prev" aria-label="Anterior">&#8249;</button><button class="arr next" aria-label="Siguiente">&#8250;</button><div class="dots"></div></div></section>
+
+<section id="problema">
+<h2>Planteamiento del problema</h2>
+<p class="lead">Los controladores PID dependen de una buena sintonización y se degradan ante perturbaciones no previstas. ¿Puede una red neuronal embebida hacerlo mejor?</p>
+<div class="q">¿Cómo puede un modelo de inteligencia artificial, implementado en un controlador embebido de recursos limitados, identificar las alteraciones que afectan la estabilidad de un avión a escala y generar acciones correctivas en un tiempo de respuesta adecuado para mantener una trayectoria autónoma y estable en línea recta durante un recorrido superior a cinco metros?</div>
+</section>
+
+<section id="objetivos">
+<h2>Objetivos</h2>
+<p class="lead">Diseñar y construir un prototipo de avión a escala para vuelo autónomo que identifique perturbaciones, genere acciones de autocorrección y mantenga una trayectoria recta estable sin control remoto continuo.</p>
+<div class="grid">
+<div class="card"><div class="d">01</div><h3>Diseñar y construir</h3><p>La estructura del avión, con motores, sensores y electrónica para las pruebas.</p></div>
+<div class="card"><div class="d">02</div><h3>Recopilar y preprocesar</h3><p>Datos de aceleración, inclinación y vibraciones en distintas condiciones.</p></div>
+<div class="card"><div class="d">03</div><h3>Entrenar y optimizar</h3><p>Red neuronal en TensorFlow, con conversión y cuantización a TensorFlow Lite.</p></div>
+<div class="card"><div class="d">04</div><h3>Implementar e integrar</h3><p>El modelo en un controlador embebido que genera las señales de control.</p></div>
+<div class="card"><div class="d">05</div><h3>Evaluar</h3><p>Pruebas de vuelo: detección, respuesta, tiempo de inferencia y desviación.</p></div>
+</div>
+</section>
+
+<section id="metodologia">
+<h2>Metodología · 7 fases</h2>
+<div class="ph"><span>01</span><div><h3>Diseño y construcción</h3><p>Dimensiones, ubicación de motores, distribución de masa y verificaciones iniciales.</p></div></div>
+<div class="ph"><span>02</span><div><h3>Sensores y adquisición</h3><p>IMU, calibración y registro con motores apagados y encendidos.</p></div></div>
+<div class="ph"><span>03</span><div><h3>Procesamiento de datos</h3><p>Limpieza, filtrado, normalización, etiquetado y división en entrenamiento, validación y prueba.</p></div></div>
+<div class="ph"><span>04</span><div><h3>Red neuronal</h3><p>Entrenamiento en TensorFlow para distinguir vuelo estable de alteraciones.</p></div></div>
+<div class="ph"><span>05</span><div><h3>Optimización e implementación</h3><p>TensorFlow Lite Micro, cuantización y medición de inferencia (ms) y memoria.</p></div></div>
+<div class="ph"><span>06</span><div><h3>Integración y acciones correctivas</h3><p>Sensores, controlador, modelo y motores; pruebas en tierra antes de volar.</p></div></div>
+<div class="ph"><span>07</span><div><h3>Pruebas experimentales</h3><p>Recorrido de más de 5 m en línea recta evaluando estabilidad, trayectoria, detección, respuesta y autonomía.</p></div></div>
+</section>
+
+<section id="video"><h2>Videos del prototipo</h2><div class="vids"><figure><video controls playsinline preload="metadata" src="media/video1.mp4"></video><figcaption>Video 1 · Prototipo</figcaption></figure><figure><video controls playsinline preload="metadata" src="media/video2.mp4"></video><figcaption>Video 2 · Pruebas</figcaption></figure></div></section>
+
+<section id="cronograma">
+<h2>Cronograma por semanas (aprox.)</h2>
+<div class="g" id="gantt"></div>
+</section>
+
+<section id="legal">
+<h2>Marco legal</h2>
+<p class="lead">En Colombia la UAEAC regula las aeronaves no tripuladas. La referencia es el RAC 100 (Resolución 01983 del 27 de septiembre de 2023); se verificarán requisitos y autorizaciones antes de volar.</p>
+</section>
+
+<section id="equipo">
+<h2>Equipo</h2>
+<div class="team">
+<div>Santiago Serna Solarte<small>santiago.serna02@usc.edu.co</small></div>
+<div>Luis Miguel Sánchez Rosero<small>luis.sanchez20@usc.edu.co</small></div>
+<div>Jhojan Perea Lucumi<small>jhojan.perea00@usc.edu.co</small></div>
+<div>Rodrigo Esteban Peña Hidalgo<small>rodrigo.pena01@usc.edu.co</small></div>
+<div>Manuel Stiven Gomez Ibarra<small>manuel.gomez06@usc.edu.co</small></div>
+<div>Mauricio Alvarado Bueno<small>Director · Vo Bo</small></div>
+</div>
+</section>
+
+<section>
+<h2>Referencias clave</h2>
+<div class="ref">David et al. (2021), TensorFlow Lite Micro · Ulu et al. (2024), PID con redes neuronales en UAV · Banerjee et al. (2023), anomalías de vibración en UAV · Bøhn et al. (2019), control de actitud con aprendizaje por refuerzo · Herrera et al. (2018), filtrado de señal inercial · Hua (2026), PD y PID en UAV · Sonkar et al. (2023), UAV híbrido VTOL · Yañez-Badillo et al. (2017), control neuronal en quadrotor.</div>
+</section>
+
+<footer>UNIVERSIDAD SANTIAGO DE CALI · FACULTAD DE INGENIERÍA · GRUPO COMBA I+D</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
